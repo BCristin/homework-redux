@@ -1,18 +1,8 @@
-// Задача для этого компонента:
-// Реализовать создание нового героя с введенными данными. Он должен попадать
-// в общее состояние и отображаться в списке + фильтроваться
-// Уникальный идентификатор персонажа можно сгенерировать через uiid
-// Усложненная задача:
-// Персонаж создается и в файле json при помощи метода POST
-// Дополнительно:
-// Элементы <option></option> желательно сформировать на базе
-// данных из фильтров
-
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { filtersFetched, heroAdd } from "../../actions";
-import { useHttp } from "../../hooks/http.hook";
+import { fetchFilter } from "../heroesFilters/filtersSlice";
+import { postHero } from "../heroesList/heroesSlice";
 
 const HeroesAddForm = () => {
 	const [name, setName] = useState("");
@@ -20,14 +10,10 @@ const HeroesAddForm = () => {
 	const [element, setElement] = useState("");
 
 	const dispatch = useDispatch();
-	const { filters } = useSelector((state) => state);
-
-	const { request } = useHttp();
+	const { filters } = useSelector((state) => state.filters);
 
 	useEffect(() => {
-		request("http://localhost:3001/filters")
-			.then((data) => dispatch(filtersFetched(data)))
-			.catch(() => alert("ceva nu a mers bine cu preluarea filtrelor JSON"));
+		dispatch(fetchFilter());
 		// eslint-disable-next-line
 	}, []);
 
@@ -40,9 +26,7 @@ const HeroesAddForm = () => {
 	const onSubmitHandler = (e) => {
 		e.preventDefault();
 		const hero = { id: uuidv4(), name, description, element };
-		request(`http://localhost:3001/heroes`, "POST", JSON.stringify(hero))
-			.then(dispatch(heroAdd(hero)))
-			.catch(() => alert("ceva nu a mers bine cu adaugarea eroul in JSON"));
+		dispatch(postHero(hero));
 		resetForm();
 	};
 	const renderOptionSelect = () => {

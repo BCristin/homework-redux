@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { heroesFetched } from "../../actions";
 import { useHttp } from "../../hooks/http.hook";
+import { heroesFetched } from "../heroesList/heroesSlice";
 
 const HeroesListItem = ({ name, description, element, id }) => {
-	const { heroes } = useSelector((state) => state);
+	const { heroes } = useSelector((state) => state.heroes);
 	const dispatch = useDispatch();
 	const { request } = useHttp();
 
