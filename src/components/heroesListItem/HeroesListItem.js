@@ -1,11 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useHttp } from "../../hooks/http.hook";
-import { heroesFetched } from "../heroesList/heroesSlice";
+import { useDispatch } from "react-redux";
+import { removeHero } from "../heroesList/heroesSlice";
 
 const HeroesListItem = ({ name, description, element, id }) => {
-	const { heroes } = useSelector((state) => state.heroes);
+	// const { heroes } = useSelector((state) => state.heroes);
 	const dispatch = useDispatch();
-	const { request } = useHttp();
+	// const { request } = useHttp();
 
 	let elementClassName;
 
@@ -25,13 +24,15 @@ const HeroesListItem = ({ name, description, element, id }) => {
 		default:
 			elementClassName = "bg-warning bg-gradient";
 	}
-	const removeHero = (id) => {
-		const data = heroes.filter((hero) => hero.id !== id);
+	const removeHeroFN = (id) => {
+		dispatch(removeHero(id));
+		// const data = heroes.filter((hero) => hero.id !== id);
 		// dispatch(heroesFetched(data));
-		request(`http://localhost:3001/heroes/${id}`, "DELETE")
-			.then(dispatch(heroesFetched(data)))
-			.catch(() => alert("ceva nu a mers bine"));
+		// request(`http://localhost:3001/heroes/${id}`, "DELETE")
+		// 	.then(dispatch(heroesFetched(data)))
+		// 	.catch(() => alert("ceva nu a mers bine"));
 	};
+
 	return (
 		<li className={`card flex-row mb-4 shadow-lg text-white ${elementClassName}`}>
 			<img
@@ -49,7 +50,7 @@ const HeroesListItem = ({ name, description, element, id }) => {
 					type="button"
 					className="btn-close btn-close"
 					aria-label="Close"
-					onClick={() => removeHero(id)}
+					onClick={() => removeHeroFN(id)}
 				></button>
 			</span>
 		</li>
