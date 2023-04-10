@@ -85,7 +85,10 @@ const heroesSlice = createSlice({
 const { actions, reducer } = heroesSlice;
 
 export default reducer;
-const { selectAll } = heroesAdapter.getSelectors((state) => state.heroes);
+const { selectAll } = heroesAdapter.getSelectors((state) => {
+	// console.log(state);
+	return state.heroes;
+});
 
 const filteringHeroes = (arr, activeFilter) => {
 	if (activeFilter === "all") return arr;

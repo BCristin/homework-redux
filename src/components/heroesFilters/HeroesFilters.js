@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setActiveFilters } from "../heroesFilters/filtersSlice";
+import store from "../../store";
+import { selectAll, setActiveFilters } from "../heroesFilters/filtersSlice";
 
 const HeroesFilters = () => {
 	const dispatch = useDispatch();
-	const { filters, activeFilter } = useSelector((state) => {
+	const { activeFilter } = useSelector((state) => {
 		return state.filters;
 	});
+	const filters = selectAll(store.getState());
+	// console.log(filters);
 
 	const handlerFiltre = (activeBTN) => {
 		dispatch(setActiveFilters(activeBTN));

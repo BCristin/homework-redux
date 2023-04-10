@@ -2,16 +2,20 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import { useDispatch, useSelector } from "react-redux";
-import { fetchFilter } from "../heroesFilters/filtersSlice";
+import { fetchFilter, selectAll } from "../heroesFilters/filtersSlice";
 import { postHero } from "../heroesList/heroesSlice";
 
 const HeroesAddForm = () => {
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [element, setElement] = useState("");
+	const state = useSelector((state) => state);
+	const { filtersLoadingStatus } = state.filters;
 
 	const dispatch = useDispatch();
-	const { filters } = useSelector((state) => state.filters);
+	// const { filters } = useSelector((state) => state.filters);
+
+	const filters = selectAll(state);
 
 	useEffect(() => {
 		dispatch(fetchFilter());
@@ -29,15 +33,22 @@ const HeroesAddForm = () => {
 		const hero = { id: uuidv4(), name, description, element };
 		dispatch(postHero(hero)).then(resetForm());
 	};
-	const renderOptionSelect = () => {
-		return filters.map((item) => {
-			if (item.name === "all") return null;
-			return (
-				<option key={item.name + item.label} value={item.name}>
-					{item.label}
-				</option>
-			);
-		});
+	const renderOptionSelect = (filters, status) => {
+		if (status === "loading") {
+			return <option>Загрузка элементов</option>;
+		} else if (status === "error") {
+			return <option>Ошибка загрузки</option>;
+		}
+		if (filters && filters.length > 0) {
+			return filters.map((item) => {
+				if (item.name === "all") return null;
+				return (
+					<option key={item.id} value={item.name}>
+						{item.label}
+					</option>
+				);
+			});
+		}
 	};
 
 	return (
@@ -89,7 +100,7 @@ const HeroesAddForm = () => {
 					}}
 				>
 					<option>Я владею элементом...</option>
-					{renderOptionSelect()}
+					{renderOptionSelect(filters, filtersLoadingStatus)}
 					{/* <option value="fire">Огонь</option>
 					<option value="water">Вода</option>
 					<option value="wind">Ветер</option>
