@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+
+import { useDispatch, useSelector } from "react-redux";
 import { fetchFilter } from "../heroesFilters/filtersSlice";
 import { postHero } from "../heroesList/heroesSlice";
 
@@ -26,8 +27,7 @@ const HeroesAddForm = () => {
 	const onSubmitHandler = (e) => {
 		e.preventDefault();
 		const hero = { id: uuidv4(), name, description, element };
-		dispatch(postHero(hero));
-		resetForm();
+		dispatch(postHero(hero)).then(resetForm());
 	};
 	const renderOptionSelect = () => {
 		return filters.map((item) => {

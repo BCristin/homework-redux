@@ -24,14 +24,14 @@ const HeroesListItem = ({ name, description, element, id }) => {
 		default:
 			elementClassName = "bg-warning bg-gradient";
 	}
-	const removeHeroFN = (id) => {
-		dispatch(removeHero(id));
-		// const data = heroes.filter((hero) => hero.id !== id);
-		// dispatch(heroesFetched(data));
-		// request(`http://localhost:3001/heroes/${id}`, "DELETE")
-		// 	.then(dispatch(heroesFetched(data)))
-		// 	.catch(() => alert("ceva nu a mers bine"));
-	};
+	// const removeHeroFN = (id) => {
+	// 	dispatch(removeHero(id));
+	// 	// const data = heroes.filter((hero) => hero.id !== id);
+	// 	// dispatch(heroesFetched(data));
+	// 	// request(`http://localhost:3001/heroes/${id}`, "DELETE")
+	// 	// 	.then(dispatch(heroesFetched(data)))
+	// 	// 	.catch(() => alert("ceva nu a mers bine"));
+	// };
 
 	return (
 		<li className={`card flex-row mb-4 shadow-lg text-white ${elementClassName}`}>
@@ -50,7 +50,7 @@ const HeroesListItem = ({ name, description, element, id }) => {
 					type="button"
 					className="btn-close btn-close"
 					aria-label="Close"
-					onClick={() => removeHeroFN(id)}
+					onClick={() => dispatch(removeHero(id))}
 				></button>
 			</span>
 		</li>

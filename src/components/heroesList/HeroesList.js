@@ -1,30 +1,24 @@
-import { createSelector } from "@reduxjs/toolkit";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-
-import { fetchHeroes } from "../heroesList/heroesSlice";
 
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from "../spinner/Spinner";
-
 import "./heroesList.scss";
 
-const HeroesList = () => {
-	// const { activeFilter } = useSelector((state) => state.filters);
-	const { heroes, heroesLoadingStatus } = useSelector((state) => state.heroes);
+// ce tine de Redux
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHeroes, filteredHeroesSelector } from "../heroesList/heroesSlice";
 
-	const filteredHeroesSelector = createSelector(
-		(state) => state.filters.activeFilter,
-		(state) => state.heroes.heroes,
-		(activeFilter, heroes) => filterHeroesFN(heroes, activeFilter)
-	);
+const HeroesList = () => {
+	const dispatch = useDispatch();
+	// const { activeFilter } = useSelector((state) => state.filters);
+	const { heroesLoadingStatus } = useSelector((state) => state.heroes); // extrage din state valoriile specificate
+
+	// scoate lista filtrata
 	const filteredHeroes = useSelector(filteredHeroesSelector);
 
-	const dispatch = useDispatch();
-
 	useEffect(() => {
-		dispatch(fetchHeroes());
+		dispatch(fetchHeroes()); // dispatch cumva salveaza valrile in local store, in cazul dat le ia de pe server si le salveaza
 		// eslint-disable-next-line
 	}, []);
 
@@ -32,12 +26,6 @@ const HeroesList = () => {
 		return <Spinner />;
 	} else if (heroesLoadingStatus === "error") {
 		return <h5 className="text-center mt-5">Ошибка загрузки</h5>;
-	}
-
-	function filterHeroesFN(arr, activeFilter) {
-		console.log("render");
-		if (activeFilter === "all") return arr;
-		return arr.filter((hero) => hero.element === activeFilter);
 	}
 
 	const renderHeroesList = (arr) => {
@@ -49,7 +37,7 @@ const HeroesList = () => {
 			);
 		}
 
-		return filteredHeroes.map(({ id, ...props }) => {
+		return arr.map(({ id, ...props }) => {
 			return (
 				<CSSTransition key={id} timeout={500} classNames="hero">
 					<HeroesListItem key={id} {...props} id={id} />
@@ -58,7 +46,7 @@ const HeroesList = () => {
 		});
 	};
 
-	const elements = renderHeroesList(heroes);
+	const elements = renderHeroesList(filteredHeroes);
 	return <TransitionGroup component="ul">{elements}</TransitionGroup>;
 	// return <ul>{elements}</ul>;
 };

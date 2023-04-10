@@ -1,223 +1,133 @@
 {
-	"heroes": [
-		{
-			"id": "f23ac9b7-1e87-4d7c-92a5-e3b5e5ec5f5c",
-			"name": "Vlad",
-			"description": "Vlad este un personaj puternic cu abilități remarcabile",
-			"element": "fire"
-		},
-		{
-			"id": "0a5df3b1-d5d5-422c-a934-12e83e7c9bde",
-			"name": "Ana",
-			"description": "Ana este o luptătoare curajoasă care nu se dă bătută niciodată",
-			"element": "water"
-		},
-		{
-			"id": "4ed1413a-8f87-47d4-9fbb-967242b8f2d1",
-			"name": "Gabriel",
-			"description": "Gabriel este un războinic puternic și priceput în arme",
-			"element": "wind"
-		},
-		{
-			"id": "c2016d44-245e-4c0f-bd6b-6e632ba06d7d",
-			"name": "Elena",
-			"description": "Elena este o vrăjitoare pricepută în arta magiei",
-			"element": "earth"
-		},
-		{
-			"id": "8c153b89-fc5d-40f5-9da2-877696ea4325",
-			"name": "Mihai",
-			"description": "Mihai este un expert în alchimie și știe să facă poțiuni de neînvins",
-			"element": "fire"
-		},
-		{
-			"id": "d1d09dc4-0af4-4c8b-bd0e-5ddcc4e4dc4f",
-			"name": "Andrei",
-			"description": "Andrei este un expert în lupta cu săbiile și cu arcul",
-			"element": "water"
-		},
-		{
-			"id": "8dbfa29c-87a5-4f08-9a8a-39bbd66f69de",
-			"name": "Irina",
-			"description": "Irina este o vrăjitoare puternică și pricepută în arta magiei întunecate",
-			"element": "wind"
-		},
-		{
-			"id": "62d0bf7b-83e1-44c8-87d6-44325e2f3cf3",
-			"name": "Alexandra",
-			"description": "Alexandra este o luptătoare curajoasă și puternică",
-			"element": "earth"
-		},
-		{
-			"id": "08cb0108-af7c-4cb2-a9f3-92fa1a19b947",
-			"name": "Marius",
-			"description": "Marius este un maestru în artele marțiale",
-			"element": "fire"
-		},
-		{
-			"id": "7e8e9015-c72d-4f92-9357-2591f484b33f",
-			"name": "Mihai",
-			"description": "Un luptator curajos dintr-un taram indepartat, aflat mereu in cautarea unei noi aventuri",
-			"element": "fire"
-		},
-		{
-			"id": "3b3ba900-9dcd-4557-8c70-54b0d6c3c6d7",
-			"name": "Andreea",
-			"description": "Un mag cunoscut pentru puterea sa de a controla vantul si de a calatori prin lume fara sa fie vazuta",
-			"element": "wind"
-		},
-		{
-			"id": "616736f7-89aa-4c1f-b6b9-8ad51f25a18a",
-			"name": "Cristian",
-			"description": "Un vrajitor talentat care stapaneste elementul apei, utilizandu-l pentru a vindeca si a purifica",
-			"element": "water"
-		},
-		{
-			"id": "782da2da-0c50-448d-ba3a-8821ec3c0059",
-			"name": "Roxana",
-			"description": "O vrajitoare priceputa in arta alchimiei, reusind sa transforme substantele in aur cu ajutorul magiei sale",
-			"element": "earth"
-		},
-		{
-			"id": "29b15cd1-2f6f-4fa9-b0f7-12d555a3a7a2",
-			"name": "Vlad",
-			"description": "Un demon temut si puternic, cunoscut pentru puterea sa distructiva si cruzimea sa fara margini",
-			"element": "fire"
-		},
-		{
-			"id": "8c31e5c5-c5d5-498a-9bbf-5315b5c30631",
-			"name": "Bianca",
-			"description": "O vrajitoare capabila sa invoce spiritele naturii si sa le foloseasca pentru a proteja flora si fauna",
-			"element": "wind"
-		},
-		{
-			"id": "610a72db-2d2c-4e5c-879f-5db5a5c5a74a",
-			"name": "Alexandru",
-			"description": "Un cavaler onorabil ce isi foloseste sabia pentru a-i apara pe cei slabi si pentru a lupta impotriva raului",
-			"element": "fire"
-		},
-		{
-			"id": "a1211a31-47d6-4d02-8a53-52cfe684fa91",
-			"name": "Elena",
-			"description": "O vrajitoare talentata in arta farmecelor, utilizandu-le pentru a-si proteja si pentru a-si imbunatati viata",
-			"element": "earth"
-		},
-		{
-			"id": "5",
-			"name": "Phoenix",
-			"description": "A legendary bird that is reborn from its own ashes.",
-			"element": "fire"
-		},
-		{
-			"id": "6",
-			"name": "Leviathan",
-			"description": "A colossal sea serpent that commands the oceans.",
-			"element": "water"
-		},
-		{
-			"id": "7",
-			"name": "Zephyr",
-			"description": "A swift and elusive creature that personifies the wind.",
-			"element": "wind"
-		},
-		{
-			"id": "8",
-			"name": "Groot",
-			"description": "A sentient tree-like creature with the power to control plant life.",
-			"element": "earth"
-		},
-		{
-			"id": "9",
-			"name": "Salamander",
-			"description": "A fiery lizard that dwells in the hottest regions of the world.",
-			"element": "fire"
-		},
-		{
-			"id": "10",
-			"name": "Kraken",
-			"description": "A terrifying sea monster with enormous tentacles.",
-			"element": "water"
-		},
-		{
-			"id": "11",
-			"name": "Harpy",
-			"description": "A winged creature with the head and torso of a woman and the talons of a bird.",
-			"element": "wind"
-		},
-		{
-			"id": "12",
-			"name": "Golem",
-			"description": "A creature made of clay, brought to life by ancient magic.",
-			"element": "earth"
-		},
-		{
-			"id": "13",
-			"name": "Dragon",
-			"description": "A legendary creature with the power to breathe fire.",
-			"element": "fire"
-		},
-		{
-			"id": "14",
-			"name": "Mermaid",
-			"description": "A beautiful creature that is half woman and half fish.",
-			"element": "water"
-		},
-		{
-			"id": "15",
-			"name": "Pegasus",
-			"description": "A majestic winged horse.",
-			"element": "wind"
-		},
-		{
-			"id": "16",
-			"name": "Ent",
-			"description": "A massive tree-like creature that protects the forests.",
-			"element": "earth"
-		},
-		{
-			"id": "17",
-			"name": "Ifrit",
-			"description": "A powerful demon made of fire.",
-			"element": "fire"
-		},
-		{
-			"id": "18",
-			"name": "Siren",
-			"description": "A creature that uses its voice to lure sailors to their doom.",
-			"element": "water"
-		},
-		{
-			"id": "9a755b5b-d9ac-4e4d-a61b-59f63b67cb8f",
-			"name": "asd",
-			"description": "asd",
-			"element": "fire"
-		}
-	],
-	"filters": [
-		{
-			"name": "all",
-			"label": "Все",
-			"className": "btn-outline-dark"
-		},
-		{
-			"name": "fire",
-			"label": "Огонь",
-			"className": "btn-danger"
-		},
-		{
-			"name": "water",
-			"label": "Вода",
-			"className": "btn-primary"
-		},
-		{
-			"name": "wind",
-			"label": "Ветер",
-			"className": "btn-success"
-		},
-		{
-			"name": "earth",
-			"label": "Земля",
-			"className": "btn-secondary"
-		}
-	]
+  "heroes": [
+    {
+      "id": "6",
+      "name": "Leviathan",
+      "description": "A colossal sea serpent that commands the oceans.",
+      "element": "water"
+    },
+    {
+      "id": "8",
+      "name": "Groot",
+      "description": "A sentient tree-like creature with the power to control plant life.",
+      "element": "earth"
+    },
+    {
+      "id": "9",
+      "name": "Salamander",
+      "description": "A fiery lizard that dwells in the hottest regions of the world.",
+      "element": "fire"
+    },
+    {
+      "id": "10",
+      "name": "Kraken",
+      "description": "A terrifying sea monster with enormous tentacles.",
+      "element": "water"
+    },
+    {
+      "id": "11",
+      "name": "Harpy",
+      "description": "A winged creature with the head and torso of a woman and the talons of a bird.",
+      "element": "wind"
+    },
+    {
+      "id": "12",
+      "name": "Golem",
+      "description": "A creature made of clay, brought to life by ancient magic.",
+      "element": "earth"
+    },
+    {
+      "id": "13",
+      "name": "Dragon",
+      "description": "A legendary creature with the power to breathe fire.",
+      "element": "fire"
+    },
+    {
+      "id": "14",
+      "name": "Mermaid",
+      "description": "A beautiful creature that is half woman and half fish.",
+      "element": "water"
+    },
+    {
+      "id": "15",
+      "name": "Pegasus",
+      "description": "A majestic winged horse.",
+      "element": "wind"
+    },
+    {
+      "id": "16",
+      "name": "Ent",
+      "description": "A massive tree-like creature that protects the forests.",
+      "element": "earth"
+    },
+    {
+      "id": "17",
+      "name": "Ifrit",
+      "description": "A powerful demon made of fire.",
+      "element": "fire"
+    },
+    {
+      "id": "18",
+      "name": "Siren",
+      "description": "A creature that uses its voice to lure sailors to their doom.",
+      "element": "water"
+    },
+    {
+      "id": "0e6a486d-12c6-46d7-a651-93856e146334",
+      "name": "asd",
+      "description": "asd",
+      "element": "fire"
+    },
+    {
+      "id": "f1391219-ce92-407c-ab47-e9145988474a",
+      "name": "asd",
+      "description": "asd",
+      "element": "water"
+    },
+    {
+      "id": "02d91de4-372a-4135-a8af-ed6522e3bdc9",
+      "name": "asd",
+      "description": "asd",
+      "element": "fire"
+    },
+    {
+      "id": "f8e6506d-d53f-4a83-b6c3-10d40b7a8932",
+      "name": "asd",
+      "description": "asd",
+      "element": "earth"
+    },
+    {
+      "id": "379c4267-0d87-4406-8b77-d2ed9abf73db",
+      "name": "test Adaptor",
+      "description": "test Adaptor",
+      "element": "wind"
+    }
+  ],
+  "filters": [
+    {
+      "name": "all",
+      "label": "Все",
+      "className": "btn-outline-dark"
+    },
+    {
+      "name": "fire",
+      "label": "Огонь",
+      "className": "btn-danger"
+    },
+    {
+      "name": "water",
+      "label": "Вода",
+      "className": "btn-primary"
+    },
+    {
+      "name": "wind",
+      "label": "Ветер",
+      "className": "btn-success"
+    },
+    {
+      "name": "earth",
+      "label": "Земля",
+      "className": "btn-secondary"
+    }
+  ]
 }
