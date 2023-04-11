@@ -1,138 +1,144 @@
 {
-	"heroes": [
-		{
-			"id": "6",
-			"name": "Leviathan",
-			"description": "A colossal sea serpent that commands the oceans.",
-			"element": "water"
-		},
-		{
-			"id": "8",
-			"name": "Groot",
-			"description": "A sentient tree-like creature with the power to control plant life.",
-			"element": "earth"
-		},
-		{
-			"id": "9",
-			"name": "Salamander",
-			"description": "A fiery lizard that dwells in the hottest regions of the world.",
-			"element": "fire"
-		},
-		{
-			"id": "10",
-			"name": "Kraken",
-			"description": "A terrifying sea monster with enormous tentacles.",
-			"element": "water"
-		},
-		{
-			"id": "11",
-			"name": "Harpy",
-			"description": "A winged creature with the head and torso of a woman and the talons of a bird.",
-			"element": "wind"
-		},
-		{
-			"id": "12",
-			"name": "Golem",
-			"description": "A creature made of clay, brought to life by ancient magic.",
-			"element": "earth"
-		},
-		{
-			"id": "13",
-			"name": "Dragon",
-			"description": "A legendary creature with the power to breathe fire.",
-			"element": "fire"
-		},
-		{
-			"id": "14",
-			"name": "Mermaid",
-			"description": "A beautiful creature that is half woman and half fish.",
-			"element": "water"
-		},
-		{
-			"id": "15",
-			"name": "Pegasus",
-			"description": "A majestic winged horse.",
-			"element": "wind"
-		},
-		{
-			"id": "16",
-			"name": "Ent",
-			"description": "A massive tree-like creature that protects the forests.",
-			"element": "earth"
-		},
-		{
-			"id": "17",
-			"name": "Ifrit",
-			"description": "A powerful demon made of fire.",
-			"element": "fire"
-		},
-		{
-			"id": "18",
-			"name": "Siren",
-			"description": "A creature that uses its voice to lure sailors to their doom.",
-			"element": "water"
-		},
-		{
-			"id": "0e6a486d-12c6-46d7-a651-93856e146334",
-			"name": "asd",
-			"description": "asd",
-			"element": "fire"
-		},
-		{
-			"id": "f1391219-ce92-407c-ab47-e9145988474a",
-			"name": "asd",
-			"description": "asd",
-			"element": "water"
-		},
-		{
-			"id": "02d91de4-372a-4135-a8af-ed6522e3bdc9",
-			"name": "asd",
-			"description": "asd",
-			"element": "fire"
-		},
-		{
-			"id": "f8e6506d-d53f-4a83-b6c3-10d40b7a8932",
-			"name": "asd",
-			"description": "asd",
-			"element": "earth"
-		},
-		{
-			"id": "379c4267-0d87-4406-8b77-d2ed9abf73db",
-			"name": "test Adaptor",
-			"description": "test Adaptor",
-			"element": "wind"
-		}
-	],
-	"filters": [
-		{
-			"id": "all",
-			"name": "all",
-			"label": "Все",
-			"className": "btn-outline-dark"
-		},
-		{
-			"id": "fire",
-			"name": "fire",
-			"label": "Огонь",
-			"className": "btn-danger"
-		},
-		{
-			"id": "water",
-			"name": "water",
-			"label": "Вода",
-			"className": "btn-primary"
-		},
-		{
-			"id": "wind",
-			"name": "wind",
-			"label": "Ветер",
-			"className": "btn-success"
-		},
-		{
-			"id": "earth",
-			"name": "earth",
-			"label": "Земля",
-			"className": "btn-secondary"
-		}
-	]
+  "heroes": [
+    {
+      "id": "6",
+      "name": "Leviathan",
+      "description": "A colossal sea serpent that commands the oceans.",
+      "element": "water"
+    },
+    {
+      "id": "8",
+      "name": "Groot",
+      "description": "A sentient tree-like creature with the power to control plant life.",
+      "element": "earth"
+    },
+    {
+      "id": "9",
+      "name": "Salamander",
+      "description": "A fiery lizard that dwells in the hottest regions of the world.",
+      "element": "fire"
+    },
+    {
+      "id": "10",
+      "name": "Kraken",
+      "description": "A terrifying sea monster with enormous tentacles.",
+      "element": "water"
+    },
+    {
+      "id": "11",
+      "name": "Harpy",
+      "description": "A winged creature with the head and torso of a woman and the talons of a bird.",
+      "element": "wind"
+    },
+    {
+      "id": "12",
+      "name": "Golem",
+      "description": "A creature made of clay, brought to life by ancient magic.",
+      "element": "earth"
+    },
+    {
+      "id": "13",
+      "name": "Dragon",
+      "description": "A legendary creature with the power to breathe fire.",
+      "element": "fire"
+    },
+    {
+      "id": "14",
+      "name": "Mermaid",
+      "description": "A beautiful creature that is half woman and half fish.",
+      "element": "water"
+    },
+    {
+      "id": "15",
+      "name": "Pegasus",
+      "description": "A majestic winged horse.",
+      "element": "wind"
+    },
+    {
+      "id": "16",
+      "name": "Ent",
+      "description": "A massive tree-like creature that protects the forests.",
+      "element": "earth"
+    },
+    {
+      "id": "17",
+      "name": "Ifrit",
+      "description": "A powerful demon made of fire.",
+      "element": "fire"
+    },
+    {
+      "id": "18",
+      "name": "Siren",
+      "description": "A creature that uses its voice to lure sailors to their doom.",
+      "element": "water"
+    },
+    {
+      "id": "f8e6506d-d53f-4a83-b6c3-10d40b7a8932",
+      "name": "asd",
+      "description": "asd",
+      "element": "earth"
+    },
+    {
+      "id": "379c4267-0d87-4406-8b77-d2ed9abf73db",
+      "name": "test Adaptor",
+      "description": "test Adaptor",
+      "element": "wind"
+    },
+    {
+      "id": "1393b542-0ca4-408c-a1f1-16e6f9a434a5",
+      "name": "asd",
+      "description": "sadad",
+      "element": "wind"
+    },
+    {
+      "id": "e3bbe0a0-b9da-455e-a40e-d079ddef1554",
+      "name": "sad",
+      "description": "asd",
+      "element": "water"
+    },
+    {
+      "id": "8e7ef9d7-9f7e-4b1e-b369-e37ca2e9d117",
+      "name": "sad",
+      "description": "asd",
+      "element": "fire"
+    },
+    {
+      "id": "35e3bf2d-e11d-4839-94d4-f20403038ce7",
+      "name": "ukjjk",
+      "description": "fgfg",
+      "element": "water"
+    }
+  ],
+  "filters": [
+    {
+      "id": "all",
+      "name": "all",
+      "label": "Все",
+      "className": "btn-outline-dark"
+    },
+    {
+      "id": "fire",
+      "name": "fire",
+      "label": "Огонь",
+      "className": "btn-danger"
+    },
+    {
+      "id": "water",
+      "name": "water",
+      "label": "Вода",
+      "className": "btn-primary"
+    },
+    {
+      "id": "wind",
+      "name": "wind",
+      "label": "Ветер",
+      "className": "btn-success"
+    },
+    {
+      "id": "earth",
+      "name": "earth",
+      "label": "Земля",
+      "className": "btn-secondary"
+    }
+  ]
 }

@@ -1,9 +1,8 @@
-import { useDispatch } from "react-redux";
-import { removeHero } from "../heroesList/heroesSlice";
+import { useDeleteHeroMutation } from "../../api/apiSlice";
 
 const HeroesListItem = ({ name, description, element, id }) => {
 	// const { heroes } = useSelector((state) => state.heroes);
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 	// const { request } = useHttp();
 
 	let elementClassName;
@@ -32,6 +31,7 @@ const HeroesListItem = ({ name, description, element, id }) => {
 	// 	// 	.then(dispatch(heroesFetched(data)))
 	// 	// 	.catch(() => alert("ceva nu a mers bine"));
 	// };
+	const [deleteHero] = useDeleteHeroMutation();
 
 	return (
 		<li className={`card flex-row mb-4 shadow-lg text-white ${elementClassName}`}>
@@ -50,7 +50,7 @@ const HeroesListItem = ({ name, description, element, id }) => {
 					type="button"
 					className="btn-close btn-close"
 					aria-label="Close"
-					onClick={() => dispatch(removeHero(id))}
+					onClick={() => /*dispatch(removeHero(id))*/ deleteHero(id)}
 				></button>
 			</span>
 		</li>

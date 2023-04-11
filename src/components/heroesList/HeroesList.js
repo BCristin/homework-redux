@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import HeroesListItem from "../heroesListItem/HeroesListItem";
@@ -6,25 +5,48 @@ import Spinner from "../spinner/Spinner";
 import "./heroesList.scss";
 
 // ce tine de Redux
-import { useDispatch, useSelector } from "react-redux";
-import { fetchHeroes, filteredHeroesSelector } from "../heroesList/heroesSlice";
+import { useMemo } from "react";
+import { useSelector } from "react-redux";
+import { useGetHeroesQuery } from "../../api/apiSlice";
 
 const HeroesList = () => {
-	const dispatch = useDispatch();
+	const {
+		data: heroes = [],
+		// isFetching, // se schimba de fiecare data
+		isLoading, // va fi true cand se incarca datele de pe server prima data
+		// isSuccess, // cand tot ok
+		isError, // cand eroare
+		// error, // eroare in sine
+	} = useGetHeroesQuery();
+	const activeFilter = useSelector((state) => state.filters.activeFilter);
+	const filteredHeroes = useMemo(() => {
+		const filteredHeroes = heroes.slice();
+		if (activeFilter === "all") return filteredHeroes;
+		return filteredHeroes.filter((hero) => hero.element === activeFilter);
+	}, [heroes, activeFilter]);
+	// const filteredHeroesSelector = createSelector(
+	// 	// memoreaza valoarea, verfica daca noua valoare e la fel ca ceava veche si daca e ca cea veche nu randeaza
+	// 	(state) => state.filters.activeFilter,
+	// 	// (state) => state.heroes.heroes,
+	// 	selectAll,
+	// 	(activeFilter, heroes) => filteringHeroes(heroes, activeFilter)
+	// );
+
+	// const dispatch = useDispatch();
 	// const { activeFilter } = useSelector((state) => state.filters);
-	const { heroesLoadingStatus } = useSelector((state) => state.heroes); // extrage din state valoriile specificate
+	// const { heroesLoadingStatus } = useSelector((state) => state.heroes); // extrage din state valoriile specificate
 
 	// scoate lista filtrata
-	const filteredHeroes = useSelector(filteredHeroesSelector);
+	// const filteredHeroes = useSelector(filteredHeroesSelector);
 
-	useEffect(() => {
-		dispatch(fetchHeroes()); // dispatch cumva salveaza valrile in local store, in cazul dat le ia de pe server si le salveaza
-		// eslint-disable-next-line
-	}, []);
+	// useEffect(() => {
+	// 	dispatch(fetchHeroes()); // dispatch cumva salveaza valoriile in store, in cazul dat le ia de pe server si le salveaza
+	// 	// eslint-disable-next-line
+	// }, []);
 
-	if (heroesLoadingStatus === "loading") {
+	if (isLoading) {
 		return <Spinner />;
-	} else if (heroesLoadingStatus === "error") {
+	} else if (isError) {
 		return <h5 className="text-center mt-5">Ошибка загрузки</h5>;
 	}
 

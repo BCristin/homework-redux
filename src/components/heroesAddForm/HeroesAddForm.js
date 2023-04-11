@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import { useDispatch, useSelector } from "react-redux";
+import { useCreateHeroMutation } from "../../api/apiSlice";
 import { fetchFilter, selectAll } from "../heroesFilters/filtersSlice";
-import { postHero } from "../heroesList/heroesSlice";
 
 const HeroesAddForm = () => {
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [element, setElement] = useState("");
+	// eslint-disable-next-line
+	const [createHero, { isLoading }] = useCreateHeroMutation();
+
 	const state = useSelector((state) => state);
 	const { filtersLoadingStatus } = state.filters;
 
@@ -31,7 +34,9 @@ const HeroesAddForm = () => {
 	const onSubmitHandler = (e) => {
 		e.preventDefault();
 		const hero = { id: uuidv4(), name, description, element };
-		dispatch(postHero(hero)).then(resetForm());
+		// dispatch(postHero(hero)).then(resetForm());
+		createHero(hero).unwrap();
+		resetForm();
 	};
 	const renderOptionSelect = (filters, status) => {
 		if (status === "loading") {
