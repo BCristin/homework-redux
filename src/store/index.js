@@ -18,7 +18,7 @@ const store = configureStore({
 		[apiSlice.reducerPath]: apiSlice.reducer,
 	}, // uneste reducer in unul singur
 	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware().concat(apiSlice.middleware), // merge si fara asta(	middleware: (getDefaultMiddleware) =>		getDefaultMiddleware().), fiindca se adauga defal, dar daca vrem sa adaucam un middleware nou trebuie scriem
+		getDefaultMiddleware().concat(apiSlice.middleware), // merge si fara asta(middleware: (getDefaultMiddleware) => getDefaultMiddleware()), fiindca se adauga defaul, dar daca vrem sa adaugam un middleware nou trebuie scriem
 	devTools: process.env.NODE_ENV !== "production", // pt ca sa mearga extensia din browser , doar modul dezvoltator, daca e in productie nu va merge
 });
 // store.subscribe(() => console.log(store.getState()));

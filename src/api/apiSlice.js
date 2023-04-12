@@ -2,12 +2,12 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
 	reducerPath: "api", // vine default daca nu se scrie
-	baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001" }), //* obligatoriu , in loc fetch, fiindca are setarii ...
-	tagTypes: ["Heroes"],
+	baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001" }), //* obligatoriu , in loc fetch, fiindca are setarii gata facute...
+	tagTypes: ["Heroes"], //lista de taguri din apiSlice
 	endpoints: (builder) => ({
 		getHeroes: builder.query({
 			query: () => "/heroes",
-			providesTags: ["Heroes"],
+			providesTags: ["Heroes"], //  cand invalidatesTags se apeleaza providesTags se actualizeaza
 		}),
 		createHero: builder.mutation({
 			query: (hero) => ({
@@ -15,7 +15,7 @@ export const apiSlice = createApi({
 				method: "POST",
 				body: hero,
 			}),
-			invalidatesTags: ["Heroes"],
+			invalidatesTags: ["Heroes"], // datele vechi devin invalide, respectiv se reactualizeaza
 		}),
 		deleteHero: builder.mutation({
 			query: (id) => ({
@@ -24,10 +24,16 @@ export const apiSlice = createApi({
 			}),
 			invalidatesTags: ["Heroes"],
 		}),
+		getFilters: builder.query({
+			query: () => "/filters",
+		}),
 	}), // preia informatiile din api
 });
 
-// createApi face hookuri automat pt fiecare din endpoints si reducer
-
-export const { useGetHeroesQuery, useCreateHeroMutation, useDeleteHeroMutation } =
-	apiSlice;
+// createApi face hookuri si reducer automat pt fiecare din endpoints
+export const {
+	useGetHeroesQuery,
+	useCreateHeroMutation,
+	useDeleteHeroMutation,
+	useGetFiltersQuery,
+} = apiSlice;

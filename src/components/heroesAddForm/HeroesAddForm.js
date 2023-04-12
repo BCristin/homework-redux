@@ -1,29 +1,28 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { useDispatch, useSelector } from "react-redux";
-import { useCreateHeroMutation } from "../../api/apiSlice";
-import { fetchFilter, selectAll } from "../heroesFilters/filtersSlice";
+import { useCreateHeroMutation, useGetFiltersQuery } from "../../api/apiSlice";
 
 const HeroesAddForm = () => {
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [element, setElement] = useState("");
 	// eslint-disable-next-line
-	const [createHero, { isLoading }] = useCreateHeroMutation();
+	const [createHero /*{ isLoading }*/] = useCreateHeroMutation();
 
-	const state = useSelector((state) => state);
-	const { filtersLoadingStatus } = state.filters;
+	// const state = useSelector((state) => state);
+	// const { filtersLoadingStatus } = state.filters;
 
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 	// const { filters } = useSelector((state) => state.filters);
+	const { data: filters = [], isLoading, isError } = useGetFiltersQuery();
 
-	const filters = selectAll(state);
+	// const filters = selectAll(state);
 
-	useEffect(() => {
-		dispatch(fetchFilter());
-		// eslint-disable-next-line
-	}, []);
+	// useEffect(() => {
+	// 	dispatch(fetchFilter());
+	// 	// eslint-disable-next-line
+	// }, []);
 
 	const resetForm = () => {
 		setName("");
@@ -35,13 +34,12 @@ const HeroesAddForm = () => {
 		e.preventDefault();
 		const hero = { id: uuidv4(), name, description, element };
 		// dispatch(postHero(hero)).then(resetForm());
-		createHero(hero).unwrap();
-		resetForm();
+		createHero(hero).then(resetForm).catch(console.error);
 	};
-	const renderOptionSelect = (filters, status) => {
-		if (status === "loading") {
+	const renderOptionSelect = (filters, isLoading, isError) => {
+		if (isLoading) {
 			return <option>Загрузка элементов</option>;
-		} else if (status === "error") {
+		} else if (isError) {
 			return <option>Ошибка загрузки</option>;
 		}
 		if (filters && filters.length > 0) {
@@ -105,8 +103,9 @@ const HeroesAddForm = () => {
 					}}
 				>
 					<option>Я владею элементом...</option>
-					{renderOptionSelect(filters, filtersLoadingStatus)}
-					{/* <option value="fire">Огонь</option>
+					{renderOptionSelect(filters, isLoading, isError)}
+					{/* 
+               <option value="fire">Огонь</option>
 					<option value="water">Вода</option>
 					<option value="wind">Ветер</option>
 					<option value="earth">Земля</option> */}
